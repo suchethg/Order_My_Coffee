@@ -23,8 +23,6 @@
             />
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@+id/name"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -32,8 +30,7 @@
             android:layout_marginLeft="23dp"
             android:layout_marginTop="30dp"
             android:text="TOPPINGS"
-            android:textColor="#000000"
-            android:textSize="14dp" />
+            style="@style/HeaderTextStyle"/>
 
         <CheckBox
             android:id="@+id/whippedCream"
@@ -64,8 +61,6 @@
     />
         <TextView
             android:id="@+id/quantity_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_below="@+id/chocolate"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
@@ -73,8 +68,8 @@
             android:layout_marginLeft="23dp"
             android:layout_marginTop="20dp"
             android:text="Quantity"
-            android:textColor="#000000"
-            android:textSize="24dp" />
+            style="@style/HeaderTextStyle"
+            />
 
         <Button
             android:id="@+id/increment"
@@ -116,14 +111,13 @@
 
         <TextView
             android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderTextStyle"
             android:layout_below="@id/quantity"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="22dp"
             android:text="ORDER SUMMARY"
-            android:textColor="#000000"
-            android:textSize="14dp" />
+        />
+
 
         <TextView
             android:id="@+id/order_summary"
