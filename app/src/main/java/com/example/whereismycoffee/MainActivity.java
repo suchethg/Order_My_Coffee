@@ -2,20 +2,17 @@ package com.example.whereismycoffee;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.NumberFormat;
+
 
 public class MainActivity extends AppCompatActivity {
 String customerName = "";
@@ -33,7 +30,7 @@ boolean haveOrdered = false;
         setContentView(R.layout.activity_main);
         quantity_textView  = (TextView) findViewById(R.id.quantity);
         nameOfCustomer = (EditText)findViewById(R.id.name);
-    customerName = nameOfCustomer.getText().toString();
+
 
 }
 
@@ -62,7 +59,7 @@ boolean haveOrdered = false;
 
 public void order(View view)
 {
-
+    customerName = nameOfCustomer.getText().toString();
     CheckBox chocolate = (CheckBox)findViewById(R.id.chocolate);
     CheckBox whippedCream = (CheckBox)findViewById(R.id.whippedCream);
     checkWhippedCream = whippedCream.isChecked();
@@ -89,10 +86,11 @@ public void order(View view)
 
 public void bill(View view)
 {
+    customerName = nameOfCustomer.getText().toString();
     if (haveOrdered) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_SUBJECT,"Coffee Bill");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Coffee Bill for "+customerName);
         intent.putExtra(Intent.EXTRA_TEXT, "Name : " + customerName + "\n" + "Add whipped cream?" + checkWhippedCream + "\n" + "Add chocolate?" + checkChocolate + "\n" + "Quantity:" + Integer.toString(quantity) + "\n" + "Total : " + "$" + Integer.toString(total) + "\n" + "Thank you!");
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
